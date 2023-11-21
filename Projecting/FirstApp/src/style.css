@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+*{
+    padding: none;
+    margin: 0 auto;
+}
+
+.all-box{
+    display: flex;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.left-box, .right-box{
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    padding: 5%;
+}
+
+.right-box{
+    background-color:darkslateblue;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    padding: 0;
+}
+
+input{
+    padding: 10px;
+    border: 2px solid black;
+    color: gray;
+    border-radius: 50px;
+    width: 70%;
+}
+
+.btn-default{
+    padding: 2%;
+    border: 2px solid black;
+    width: 25%;
+    border-radius: 5px;
+    margin: 5%;
+}
+
+.deckBox{
+    display: flex;   
+    flex-wrap: wrap;
+}
+
+.deckCard{
+    background-color: bisque;
+    height: 50vh;
+    width: 45%;
+    margin: 1%;
+    border-radius: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deckCard img{
+    width: max-content;
+    overflow: hidden;
+    padding: 5%;
+    border-radius: 15px;
+}
+
+.display-card{
+ display: flex;
+ flex-direction: column;   
+}
+
+.display-card img{
+    margin: 5%;
+    border-radius: 50px;
+    width: 90%;
+}
+
+.buttons{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
