@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import Container from "./Container.jsx"
-import Deckcard from "./DeckCard.jsx";
+import Deckcard from "./Deckcard.jsx";
 import axios from "axios";
 import Displaycard from "./Displaycard.jsx";
 
@@ -33,7 +33,9 @@ export default function App(){
      setSearchedItem(searchitem);
 
      for(i=0; i<=itemsArr.length; i++){
-        if(itemsArr[i].name == searchitem){
+        const originalName = (itemsArr[i].name).toUpperCase()
+        const duplicateName = searchitem.toUpperCase()
+        if(originalName == duplicateName){
             setFoundIndex(i);
             break;
         } 
@@ -48,13 +50,18 @@ export default function App(){
                     <input ref={inputRef} placeholder="Searching something?" type="text" />                        
                     <button className="btn-default" onClick={btnclicked}>Search</button>
                     <Container className="deckBox">
-                        <Deckcard>{owneditem[0] == null ?"Available Slot":                        <img src={itemsArr[owneditem[0]].img}/>}</Deckcard>
-                        <Deckcard>{owneditem[1] == null ?"Available Slot":                        <img src={itemsArr[owneditem[1]].img}/>}</Deckcard>
-                        <Deckcard>{owneditem[2] == null ?"Available Slot":                        <img src={itemsArr[owneditem[2]].img}/>}</Deckcard>
-                        <Deckcard>{owneditem[3] == null ?"Available Slot":                        <img src={itemsArr[owneditem[3]].img}/>}</Deckcard>
-                        <Deckcard>{owneditem[4] == null ?"Available Slot":                        <img src={itemsArr[owneditem[4]].img}/>}</Deckcard>
-                        <Deckcard>{owneditem[5] == null ?"Available Slot":                        <img src={itemsArr[owneditem[5]].img}/>}</Deckcard>
-                        
+                        <Deckcard id="0" ownedArr={owneditem} mainArr={itemsArr} >
+                        </Deckcard>
+                        <Deckcard id="1" ownedArr={owneditem} mainArr={itemsArr} >
+                        </Deckcard>
+                        <Deckcard id="2" ownedArr={owneditem} mainArr={itemsArr} >
+                        </Deckcard>
+                        <Deckcard id="3" ownedArr={owneditem} mainArr={itemsArr} >
+                        </Deckcard>
+                        <Deckcard id="4" ownedArr={owneditem} mainArr={itemsArr} >
+                        </Deckcard>
+                        <Deckcard id="5" ownedArr={owneditem} mainArr={itemsArr} >
+                        </Deckcard>    
                     </Container>   
                 </Container>
                 <Container className="right-box">
@@ -68,9 +75,8 @@ export default function App(){
                     }
                     <Container className="buttons">
                         <button className="btn-default" onClick={()=>{
-                            setOwneditem([
-                                ...owneditem,
-                                owneditem.includes(foundIndex) ? console.log("nothing"): foundIndex
+                            owneditem.includes(foundIndex) ? null :setOwneditem([
+                                ...owneditem,foundIndex
                             ])
                             console.log(owneditem);
                         }}>BuyNow</button>
