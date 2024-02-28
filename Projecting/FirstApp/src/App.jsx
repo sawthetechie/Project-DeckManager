@@ -56,6 +56,7 @@ export default function App(){
         <>
             <Container className="all-box">
                 <Container className="left-box">
+                    <br></br>
                     <input ref={inputRef} placeholder="Searching something?" type="text" />                        
                     <button className="btn-default" onClick={btnclicked}>Search</button>
                     <Container className="deckBox">
