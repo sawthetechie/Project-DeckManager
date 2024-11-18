@@ -11,7 +11,7 @@
 }
 
 .left-box, .right-box{
-    background-color: gray;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,7 +47,7 @@ input{
 .deckBox{
     display: flex;  
     flex-wrap: wrap;
-    width: 95%;
+    width: 90%;
 }
 
 .deckCard{
@@ -66,7 +66,7 @@ input{
 .deckCard img{
     width: max-content;
     overflow: hidden;
-    height: 40%;
+    height: 50%;
     border-radius: 15px;
     margin-bottom: 5%;
 }

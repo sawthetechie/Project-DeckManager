@@ -7,6 +7,7 @@ import Displaycard from "./Displaycard.jsx";
 const itemsArr = [];
 
 export default function App(){
+    console.log(itemsArr)
     const [searcheditem, setSearchedItem]= useState("");
     const [owneditem, setOwneditem]= useState([]);
     const [foundIndex, setFoundIndex]= useState(0);
@@ -41,16 +42,6 @@ export default function App(){
      }
     }
 
-    function sellclick(key){
-        const temparr = []
-         owneditem.forEach(item=>{
-            if(owneditem.indexOf(item) != key){
-                temparr.push(item);
-            } 
-        });
-        setOwneditem(temparr)
-        console.log(owneditem)
-    }
 
     return(
         <>
@@ -60,29 +51,17 @@ export default function App(){
                     <input ref={inputRef} placeholder="Searching something?" type="text" />                        
                     <button className="btn-default" onClick={btnclicked}>Search</button>
                     <Container className="deckBox">
-                        <Deckcard id="0" onClick={()=>{
-                            sellclick(0)
-                        }} ownedArr={owneditem} mainArr={itemsArr} >
+                        <Deckcard id="0" ownedArr={owneditem} mainArr={itemsArr} >
                         </Deckcard>
-                        <Deckcard id="1" onClick={()=>{
-                            sellclick(1)
-                        }} ownedArr={owneditem} mainArr={itemsArr} >
+                        <Deckcard id="1" ownedArr={owneditem} mainArr={itemsArr} >
                         </Deckcard>
-                        <Deckcard id="2" onClick={()=>{
-                            sellclick(2)
-                        }} ownedArr={owneditem} mainArr={itemsArr} >
+                        <Deckcard id="2" ownedArr={owneditem} mainArr={itemsArr} >
                         </Deckcard>
-                        <Deckcard id="3" onClick={()=>{
-                            sellclick(3)
-                        }} ownedArr={owneditem} mainArr={itemsArr} >
+                        <Deckcard id="3" ownedArr={owneditem} mainArr={itemsArr} >
                         </Deckcard>
-                        <Deckcard id="4" onClick={()=>{
-                            sellclick(4)
-                        }} ownedArr={owneditem} mainArr={itemsArr} >
+                        <Deckcard id="4" ownedArr={owneditem} mainArr={itemsArr} >
                         </Deckcard>
-                        <Deckcard id="5" onClick={()=>{
-                            sellclick(5)
-                        }} ownedArr={owneditem} mainArr={itemsArr} >
+                        <Deckcard id="5" ownedArr={owneditem} mainArr={itemsArr} >
                         </Deckcard>    
                     </Container>   
                 </Container>
@@ -97,11 +76,10 @@ export default function App(){
                     }
                     <Container className="buttons">
                         <button className="btn-default" onClick={()=>{
-                            console.log(owneditem)
                             owneditem.includes(foundIndex) ? null :setOwneditem([
                                 ...owneditem,foundIndex
                             ])
-                            
+                            console.log(owneditem);
                         }}>BuyNow</button>
                          <button className="btn-default" 
                          onClick={()=>{
